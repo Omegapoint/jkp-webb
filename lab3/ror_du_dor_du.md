@@ -1,28 +1,15 @@
 ## LAB3 notification solution
 ```javascript
 notifyAction(action) {
-    /*
-        action structure:
-        {
-            type: GAME_STATE.*,
-            data: {} (optional)
-        }
-    */
-    switch (action.type) {
-        case GAME_STATE.SOLVED: {
-            this.domManager.setNumberOfTilesMatched(++this.state.numberOfTilesMatched);
-            break;
-        }
-        case GAME_STATE.GAME_STARTED: {
-                    this.stateGameTimer();
-                }
-        case GAME_STATE.GAME_OVER: {
-            this.domManager.showGameOver(this.state);
-            clearInterval(this.gameTimer);
-            break;
-        }
+      /*
+      action structure:
+      {
+        type: 'ACTION_TYPE',
+        data: {} (optional)
+      */
+      if (action.type === 'SOLVED') {
+          this.domManager.setScore(++this.score);
+      }
+        console.log("matched", action);
     }
-
-    this.domManager.setNumberOfTries(++this.state.numberOfTries);
-}
 ```

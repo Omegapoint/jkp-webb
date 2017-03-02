@@ -1,17 +1,9 @@
-/*
- *  The module for the dom manager.
- *  You should not have to make any changes to this module in order to complete the lab.
- * */
 class DomManager {
     constructor({ node, memoryBoard }) {
         this.node = node;
         this.memoryBoard = memoryBoard;
         this.clearNode();
         this.setupBoard();
-    }
-
-    newGame(newBoard) {
-        this.memoryBoard = newBoard;
     }
 
     // remove everything connected to gameBoard
@@ -49,14 +41,9 @@ class DomManager {
         }
     }
 
-    setNumberOfTilesMatched(score = 0) {
-        const scoreEl = document.getElementById('current-number-of-tiles-matched');
+    setScore(score) {
+        const scoreEl = document.getElementById('current-score');
         scoreEl.textContent = score;
-    }
-
-    setNumberOfTries(tries) {
-        const triesEl = document.getElementById('number-of-tries');
-        triesEl.textContent = tries;
     }
 
     createCardNode(imgSrc, tileId) {
@@ -103,11 +90,6 @@ class DomManager {
         });
         this.node.appendChild(theGrid);
     }
-
-	showGameOver(gameState) {
-    const gameOverEl = document.getElementById('game-over-panel');
-    gameOverEl.style.display = 'block';
-	}
 }
 
 export default DomManager;
